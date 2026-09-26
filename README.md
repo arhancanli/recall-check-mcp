@@ -179,7 +179,11 @@ and gets back (recorded from the live server on 2026-09-26):
 ## Benchmark
 
 <!-- bench:start -->
-Not yet measured.
+Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`bench/tasks.json`, raw results in `bench/results/`).
+
+| Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
+| --- | --- | --- | --- | --- | --- |
+| This server | 6/10 | 26340 | 773 | 21 | 4.8 s |
 <!-- bench:end -->
 
 ## Performance
@@ -189,16 +193,16 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| check_recalls: Fisher-Price Rock n Play sleeper | 2704 ms | 2.1 ms | 4,254 chars |
-| check_recalls: insulin pump (FDA devices) | 3084 ms | 3.9 ms | 7,563 chars |
-| check_recalls: peanut butter, FDA food only | 2416 ms | 4.2 ms | 5,713 chars |
-| vehicle_recalls: 2018 Honda Accord | 300 ms | 0.4 ms | 6,617 chars |
-| vehicle_recalls: a VIN with a wrong check digit | 805 ms | 0.3 ms | 6,764 chars |
-| recent_recalls: last 7 days | 2796 ms | 0.7 ms | 12,776 chars |
+| check_recalls: Fisher-Price Rock n Play sleeper | 2741 ms | 2.7 ms | 4,254 chars |
+| check_recalls: insulin pump (FDA devices) | 3022 ms | 4.7 ms | 7,563 chars |
+| check_recalls: peanut butter, FDA food only | 2552 ms | 4.6 ms | 5,713 chars |
+| vehicle_recalls: 2018 Honda Accord | 331 ms | 0.5 ms | 6,617 chars |
+| vehicle_recalls: a VIN with a wrong check digit | 827 ms | 0.5 ms | 6,764 chars |
+| recent_recalls: last 7 days | 2713 ms | 1.1 ms | 12,776 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
-Tool definitions the model reads on every turn (name, description, input schema): 1,765 characters, against 10,121 for @cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,274 characters (28,479 for the alternative).
+Tool definitions the model reads on every turn (name, description, input schema): 1,765 characters, against 10,121 for @cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server. The full tool list, with the output schemas and annotations clients use to validate results, is 3,187 characters (28,479 for the alternative).
 <!-- perf:end -->
 
 ## Data sources
@@ -214,6 +218,7 @@ All are US government services. They do not endorse this server.
 <!-- family:start -->
 - [Citation Check](https://github.com/arhancanli/citation-check-mcp): Verifies citations: finds fabricated or mismatched references and retractions, returns clean BibTeX.
 - [Drug Label](https://github.com/arhancanli/drug-label-mcp): FDA drug label answers with section citations, RxNorm name resolution, recalls and shortages.
+- [End of Life](https://github.com/arhancanli/end-of-life-mcp): Is this version still supported? EOL dates, latest patch and upgrade target for 470+ products.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Satellite Imagery](https://github.com/arhancanli/satellite-imagery-mcp): Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links.

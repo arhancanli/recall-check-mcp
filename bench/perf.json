@@ -4,7 +4,7 @@
   "node": "v24.19.0",
   "runs": 3,
   "tool_definition_chars": 1765,
-  "tools_list_chars": 3274,
+  "tools_list_chars": 3187,
   "competitor": {
     "label": "@cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server",
     "tool_definition_chars": 10121,
@@ -13,38 +13,38 @@
   "scenarios": [
     {
       "call": "check_recalls: Fisher-Price Rock n Play sleeper",
-      "first_call_ms": 2704,
-      "repeat_ms": 2.1,
+      "first_call_ms": 2741,
+      "repeat_ms": 2.7,
       "result_chars": 4254
     },
     {
       "call": "check_recalls: insulin pump (FDA devices)",
-      "first_call_ms": 3084,
-      "repeat_ms": 3.9,
+      "first_call_ms": 3022,
+      "repeat_ms": 4.7,
       "result_chars": 7563
     },
     {
       "call": "check_recalls: peanut butter, FDA food only",
-      "first_call_ms": 2416,
-      "repeat_ms": 4.2,
+      "first_call_ms": 2552,
+      "repeat_ms": 4.6,
       "result_chars": 5713
     },
     {
       "call": "vehicle_recalls: 2018 Honda Accord",
-      "first_call_ms": 300,
-      "repeat_ms": 0.4,
+      "first_call_ms": 331,
+      "repeat_ms": 0.5,
       "result_chars": 6617
     },
     {
       "call": "vehicle_recalls: a VIN with a wrong check digit",
-      "first_call_ms": 805,
-      "repeat_ms": 0.3,
+      "first_call_ms": 827,
+      "repeat_ms": 0.5,
       "result_chars": 6764
     },
     {
       "call": "recent_recalls: last 7 days",
-      "first_call_ms": 2796,
-      "repeat_ms": 0.7,
+      "first_call_ms": 2713,
+      "repeat_ms": 1.1,
       "result_chars": 12776
     }
   ],
