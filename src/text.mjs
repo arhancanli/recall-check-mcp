@@ -10,6 +10,9 @@
 const STOPWORDS = new Set(
   "a an and any are as at by for from has have i in is it its me my of on or our recall recalled recalls safety safe the this to was were with".split(" "),
 );
+// Words agents add about the search itself ("FDA device recall 2026"), not about the product: they
+// never appear in the records' product text, so they rank but never exclude.
+const META = new Set("fda cpsc nhtsa usda fsis agency agencies report reports reported enforcement notice notices announcement announced class classification device devices food foods drug drugs product products consumer model latest recent newest".split(" "));
 // Sizes and counts rarely appear the same way in a record, so they help ranking but never gate it.
 const UNITS = new Set("oz ounce ounces fl lb lbs pound pounds g gram grams kg mg ml l liter liters litre litres ct count pack pk pcs piece pieces inch inches in ft cm mm".split(" "));
 
@@ -174,7 +177,7 @@ export function parseQuery(text) {
     }
     for (const w of c.split(/[^a-z0-9]+/).filter(Boolean)) {
       if (w.length < 2 || STOPWORDS.has(w)) continue;
-      if (UNITS.has(w)) {
+      if (UNITS.has(w) || META.has(w)) {
         extras.push(w);
         continue;
       }

@@ -183,7 +183,8 @@ Measured 2026-09-26 with gpt-5.4-mini, 10 fixed tasks graded by fixed checks (`b
 
 | Server | Correct | Input tokens | Output tokens | Tool calls | Median time |
 | --- | --- | --- | --- | --- | --- |
-| This server | 6/10 | 26340 | 773 | 21 | 4.8 s |
+| This server | 10/10 | 37571 | 550 | 13 | 4.7 s |
+| @cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server | 6/10 | 99067 | 750 | 15 | 2.3 s |
 <!-- bench:end -->
 
 ## Performance
@@ -193,12 +194,12 @@ Measured 2026-09-26 from Dubai, home connection against the live upstream, Node 
 
 | Call | First call | Repeat | Result size |
 | --- | --- | --- | --- |
-| check_recalls: Fisher-Price Rock n Play sleeper | 2741 ms | 2.7 ms | 4,254 chars |
-| check_recalls: insulin pump (FDA devices) | 3022 ms | 4.7 ms | 7,563 chars |
-| check_recalls: peanut butter, FDA food only | 2552 ms | 4.6 ms | 5,713 chars |
-| vehicle_recalls: 2018 Honda Accord | 331 ms | 0.5 ms | 6,617 chars |
-| vehicle_recalls: a VIN with a wrong check digit | 827 ms | 0.5 ms | 6,764 chars |
-| recent_recalls: last 7 days | 2713 ms | 1.1 ms | 12,776 chars |
+| check_recalls: Fisher-Price Rock n Play sleeper | 2753 ms | 2.2 ms | 4,254 chars |
+| check_recalls: insulin pump (FDA devices) | 3083 ms | 3.5 ms | 7,563 chars |
+| check_recalls: peanut butter, FDA food only | 2695 ms | 3.9 ms | 5,713 chars |
+| vehicle_recalls: 2018 Honda Accord | 300 ms | 0.5 ms | 6,617 chars |
+| vehicle_recalls: a VIN with a wrong check digit | 988 ms | 0.3 ms | 6,764 chars |
+| recent_recalls: last 7 days | 2695 ms | 0.5 ms | 12,776 chars |
 
 First call: a fresh server process, including the TLS connection and the upstream's own time. Repeat: the same call again, answered from the in-process cache, so it shows this server's own overhead.
 
@@ -222,6 +223,7 @@ All are US government services. They do not endorse this server.
 - [Internet Standards](https://github.com/arhancanli/internet-standards-mcp): RFC sections, status, obsoleted-by chains, errata and IANA registries for coding agents.
 - [Package Truth](https://github.com/arhancanli/package-truth-mcp): Checks packages exist before install: version, deprecation, vulnerabilities, licence. 7 ecosystems.
 - [Satellite Imagery](https://github.com/arhancanli/satellite-imagery-mcp): Find the clearest Sentinel-2, Landsat, Sentinel-1 or NAIP scene for any place, with band links.
+- [Vuln Priority](https://github.com/arhancanli/vuln-priority-mcp): Which vulnerabilities to fix first: CISA KEV, EPSS, CVSS and CISA's SSVC decisions in one ranking.
 - [The whole collection](https://github.com/arhancanli/mcp-factory#servers)
 <!-- family:end -->
 

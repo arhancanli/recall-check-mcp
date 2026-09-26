@@ -7,109 +7,74 @@
       {
         "id": "sleeper",
         "correct": true,
-        "answer": "yes",
-        "tool_calls": 3,
+        "answer": "Yes",
+        "tool_calls": 1,
         "trace": [
           {
             "tool": "check_recalls",
-            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper\",\"sources\":[\"cpsc\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper\",\"sources\":[\"cpsc\",\"fda_food\",\"fda_drug\",\"fda_device\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "recent_recalls",
-            "args": "{\"days\":90,\"agency\":\"cpsc\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper\",\"sources\":[\"cpsc\",\"fda_food\",\"fda_drug\",\"fda_device\"]}"
           }
         ],
-        "input": 2777,
-        "output": 109,
+        "input": 2261,
+        "output": 52,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 8824
+        "ms": 4908
       },
       {
         "id": "sleeper-units",
         "correct": true,
         "answer": "4.7 million",
-        "tool_calls": 2,
+        "tool_calls": 1,
         "trace": [
           {
             "tool": "check_recalls",
-            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper 2023 reannounced recall\",\"sources\":[\"cpsc\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper\",\"sources\":[\"cpsc\"],\"since\":\"2023-01-01\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"query\":\"Fisher-Price Rock 'n Play Sleeper 2023 reannounced recall\",\"sources\":[\"cpsc\"],\"since\":\"2023-01-01\"}"
           }
         ],
-        "input": 2035,
-        "output": 92,
+        "input": 1308,
+        "output": 65,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4619
+        "ms": 2350
       },
       {
         "id": "insulin-pump",
-        "correct": false,
-        "answer": "No verified 2026 FDA insulin pump device recall could be confirmed from the available recall search tool output.",
-        "tool_calls": 3,
+        "correct": true,
+        "answer": "MiniMed 780G Insulin Pump",
+        "tool_calls": 2,
         "trace": [
           {
             "tool": "recent_recalls",
-            "args": "{\"days\":90,\"agency\":\"fda_device\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"days\":90,\"agency\":\"fda_device\"}"
           },
           {
-            "tool": "recent_recalls",
-            "args": "{\"days\":90}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "recent_recalls",
-            "args": "{\"days\":14,\"agency\":\"fda_device\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "tool": "check_recalls",
+            "args": "{\"query\":\"insulin pump\",\"sources\":[\"fda_device\"],\"since\":\"2026-01-01\"}"
           }
         ],
-        "input": 2716,
-        "output": 95,
-        "cache_read": 0,
+        "input": 1598,
+        "output": 74,
+        "cache_read": 5376,
         "cache_write": 0,
-        "ms": 11201
+        "ms": 5742
       },
       {
         "id": "device-class",
-        "correct": false,
-        "answer": "I can’t verify the recall class from the available recall tool because the FDA recall lookup is failing with a schema error.",
-        "tool_calls": 3,
+        "correct": true,
+        "answer": "Class II",
+        "tool_calls": 1,
         "trace": [
           {
             "tool": "check_recalls",
-            "args": "{\"query\":\"MiniMed 780G insulin pump\",\"sources\":[\"fda_device\"],\"since\":\"2026-08-26\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"MiniMed 780G insulin pump\",\"sources\":[\"fda_device\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
-          },
-          {
-            "tool": "recent_recalls",
-            "args": "{\"days\":90,\"agency\":\"fda_device\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"query\":\"MiniMed 780G insulin pump\",\"sources\":[\"fda_device\"],\"since\":\"2026-08-26\"}"
           }
         ],
-        "input": 2853,
-        "output": 125,
+        "input": 1763,
+        "output": 47,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 4773
+        "ms": 2410
       },
       {
         "id": "accord-count",
@@ -126,12 +91,12 @@
         "output": 35,
         "cache_read": 2176,
         "cache_write": 0,
-        "ms": 2063
+        "ms": 2305
       },
       {
         "id": "vin-check",
         "correct": true,
-        "answer": "no",
+        "answer": "No",
         "tool_calls": 1,
         "trace": [
           {
@@ -143,7 +108,7 @@
         "output": 32,
         "cache_read": 2176,
         "cache_write": 0,
-        "ms": 2242
+        "ms": 3136
       },
       {
         "id": "vin-model",
@@ -160,93 +125,279 @@
         "output": 36,
         "cache_read": 2176,
         "cache_write": 0,
-        "ms": 1782
+        "ms": 1973
       },
       {
         "id": "peanut",
-        "correct": false,
-        "answer": "I’m unable to verify the most recent FDA peanut butter recall from the available tool data.",
-        "tool_calls": 3,
-        "trace": [
-          {
-            "tool": "recent_recalls",
-            "args": "{\"days\":90,\"agency\":\"fda_food\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"peanut butter\",\"sources\":[\"fda_food\"],\"since\":\"2026-06-28\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"peanut butter\",\"sources\":[\"fda_food\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties, data must NOT have additional properties, data must NOT have additional properties"
-          }
-        ],
-        "input": 2768,
-        "output": 111,
-        "cache_read": 0,
-        "cache_write": 0,
-        "ms": 6744
-      },
-      {
-        "id": "helmet",
-        "correct": false,
-        "answer": "I couldn’t verify that recall from the available tool results.",
+        "correct": true,
+        "answer": "Albertsons Companies LLC",
         "tool_calls": 2,
         "trace": [
           {
             "tool": "recent_recalls",
-            "args": "{\"days\":5,\"agency\":\"cpsc\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"agency\":\"fda_food\",\"days\":90}"
           },
           {
-            "tool": "recent_recalls",
-            "args": "{\"days\":90,\"agency\":\"cpsc\"}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "tool": "check_recalls",
+            "args": "{\"sources\":[\"fda_food\"],\"query\":\"peanut butter\",\"since\":\"2026-06-28\"}"
           }
         ],
-        "input": 1947,
-        "output": 65,
-        "cache_read": 0,
+        "input": 4570,
+        "output": 70,
+        "cache_read": 1664,
         "cache_write": 0,
-        "ms": 3892
+        "ms": 6118
+      },
+      {
+        "id": "helmet",
+        "correct": true,
+        "answer": "5Color",
+        "tool_calls": 2,
+        "trace": [
+          {
+            "tool": "recent_recalls",
+            "args": "{\"days\":90,\"agency\":\"cpsc\"}"
+          },
+          {
+            "tool": "check_recalls",
+            "args": "{\"query\":\"children's bicycle helmets\",\"sources\":[\"cpsc\"],\"since\":\"2026-09-24\"}"
+          }
+        ],
+        "input": 4873,
+        "output": 68,
+        "cache_read": 3200,
+        "cache_write": 0,
+        "ms": 4717
       },
       {
         "id": "agencies",
         "correct": true,
         "answer": "FDA",
-        "tool_calls": 2,
+        "tool_calls": 1,
         "trace": [
           {
             "tool": "check_recalls",
-            "args": "{\"query\":\"baby formula\",\"sources\":[\"cpsc\",\"fda_food\",\"fda_drug\",\"fda_device\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
-          },
-          {
-            "tool": "check_recalls",
-            "args": "{\"query\":\"baby formula\",\"sources\":[\"cpsc\",\"fda_food\"]}",
-            "error": "Tool call failed: MCP error -32602: Structured content does not match the tool's output schema: data must NOT have additional properties"
+            "args": "{\"query\":\"baby formula\",\"sources\":[\"cpsc\",\"fda_food\",\"fda_drug\",\"fda_device\"]}"
           }
         ],
-        "input": 1995,
-        "output": 73,
+        "input": 1709,
+        "output": 71,
         "cache_read": 0,
         "cache_write": 0,
-        "ms": 5514
+        "ms": 4889
+      }
+    ],
+    "competitor": [
+      {
+        "id": "sleeper",
+        "correct": true,
+        "answer": "yes",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"Fisher-Price Rock 'n Play Sleeper\",\"limit\":5}"
+          }
+        ],
+        "input": 954,
+        "output": 40,
+        "cache_read": 5376,
+        "cache_write": 0,
+        "ms": 2254
+      },
+      {
+        "id": "sleeper-units",
+        "correct": true,
+        "answer": "4.7",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"Fisher-Price Rock 'n Play Sleeper\",\"updated_start\":\"2023-01-01\",\"updated_end\":\"2023-12-31\",\"limit\":10}"
+          }
+        ],
+        "input": 1394,
+        "output": 63,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2114
+      },
+      {
+        "id": "insulin-pump",
+        "correct": false,
+        "answer": "I can’t verify an FDA insulin pump recall with the available tools here.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"insulin pump\",\"updated_start\":\"2026-01-01\",\"updated_end\":\"2026-12-31\",\"limit\":10}"
+          }
+        ],
+        "input": 1156,
+        "output": 67,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2735
+      },
+      {
+        "id": "device-class",
+        "correct": false,
+        "answer": "I couldn’t verify an FDA recall for the MiniMed 780G insulin pump on 2026-08-26 from the available recall data, so I can’t determine whether it was Class I, II, or III.",
+        "tool_calls": 6,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"MiniMed 780G insulin pump\",\"updated_start\":\"2026-08-26\",\"updated_end\":\"2026-08-26\",\"limit\":10}"
+          },
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"description_search\": \"MiniMed 780G\", \"updated_start\": \"2026-08-26\", \"updated_end\": \"2026-08-26\", \"limit\": 10}"
+          },
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\": \"MiniMed 780G\", \"updated_start\": \"2026-08-26\", \"updated_end\": \"2026-08-26\", \"limit\": 10}"
+          },
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"manufacturer\": \"Medtronic\", \"updated_start\": \"2026-08-26\", \"updated_end\": \"2026-08-26\", \"limit\": 10}"
+          },
+          {
+            "tool": "cpsc_get_recent",
+            "args": "{\"days\":365,\"limit\":100}"
+          },
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"MiniMed\",\"updated_start\":\"2026-08-26\",\"updated_end\":\"2026-08-26\",\"limit\":20}"
+          }
+        ],
+        "input": 18410,
+        "output": 325,
+        "cache_read": 29824,
+        "cache_write": 0,
+        "ms": 8155
+      },
+      {
+        "id": "accord-count",
+        "correct": false,
+        "answer": "0",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"product_name\":\"2018 Honda Accord\",\"limit\":5}"
+          }
+        ],
+        "input": 1105,
+        "output": 35,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2185
+      },
+      {
+        "id": "vin-check",
+        "correct": true,
+        "answer": "no",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"product_name\":\"VIN check digit 1HGCV1F34JA000001\"}"
+          }
+        ],
+        "input": 1125,
+        "output": 39,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2468
+      },
+      {
+        "id": "vin-model",
+        "correct": true,
+        "answer": "Honda Accord 2018",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"product_name\":\"VIN 1HGCV1F34JA000001\",\"limit\":1}"
+          }
+        ],
+        "input": 1139,
+        "output": 45,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2197
+      },
+      {
+        "id": "peanut",
+        "correct": false,
+        "answer": "I can’t verify that from the available recall data here.",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"peanut butter\",\"limit\":10,\"offset\":0}"
+          }
+        ],
+        "input": 1105,
+        "output": 48,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2347
+      },
+      {
+        "id": "helmet",
+        "correct": true,
+        "answer": "5Color",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"children's bicycle helmets\",\"updated_start\":\"2026-09-24\",\"updated_end\":\"2026-09-24\",\"limit\":10}"
+          }
+        ],
+        "input": 1548,
+        "output": 56,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2106
+      },
+      {
+        "id": "agencies",
+        "correct": true,
+        "answer": "FDA",
+        "tool_calls": 1,
+        "trace": [
+          {
+            "tool": "cpsc_search_recalls",
+            "args": "{\"title_search\":\"baby formula\",\"limit\":5}"
+          }
+        ],
+        "input": 1115,
+        "output": 32,
+        "cache_read": 4352,
+        "cache_write": 0,
+        "ms": 2633
       }
     ]
   },
   "summary": {
     "ours": {
       "tasks": 10,
+      "correct": 10,
+      "tokens_in": 37571,
+      "tokens_out": 550,
+      "cached_share": 0.446,
+      "tool_calls": 13,
+      "median_ms": 4717
+    },
+    "competitor": {
+      "tasks": 10,
       "correct": 6,
-      "tokens_in": 26340,
-      "tokens_out": 773,
-      "cached_share": 0.248,
-      "tool_calls": 21,
-      "median_ms": 4773
+      "tokens_in": 99067,
+      "tokens_out": 750,
+      "cached_share": 0.707,
+      "tool_calls": 15,
+      "median_ms": 2347
     }
   }
 }

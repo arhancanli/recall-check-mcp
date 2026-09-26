@@ -54,3 +54,10 @@ test("barcodes: FDA's 10-digit core also matches when the number system digit is
   assert.ok(upcMatches(forms, "2345678901"));
   assert.ok(!upcMatches(forms, "2345678902"));
 });
+
+test("query parsing: words about the search itself rank but never exclude", () => {
+  const p = parseQuery("insulin pump FDA device recall 2026");
+  assert.deepEqual(p.terms.map((t) => t.key), ["insulin", "pump"]);
+  assert.ok(p.extras.includes("fda") && p.extras.includes("device"));
+  assert.equal(scoreRecord({ ...p, upc: undefined }, rec(["MiniMed 780G Insulin Pump"])).confidence, "high");
+});

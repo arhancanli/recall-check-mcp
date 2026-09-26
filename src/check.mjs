@@ -17,7 +17,21 @@ export function presentRecord({ fields, upcs, _score, ...r }) {
   return compact({ ...r, agency: AGENCIES[r.agency], title: clip(r.title ?? "", 200), product: product && clip(product, 250), hazard: r.hazard && clip(r.hazard, 400), remedy: r.remedy && clip(r.remedy, 300), injuries: r.injuries && clip(r.injuries, 250), units: r.units && clip(r.units, 120), sold_at: r.sold_at && clip(r.sold_at, 150), distribution: undefined });
 }
 
-export async function searchAgencies(ctx, { query = "", upc, sources = Object.keys(AGENCIES), since }) {
+export async function searchAgencies(ctx, args) {
+  const out = await searchOnce(ctx, args);
+  // A date filter that leaves nothing: say whether older matches exist, so "since" chosen too late
+  // does not read as "never recalled".
+  if (out.total === 0 && args.since) {
+    const older = await searchOnce(ctx, { ...args, since: undefined });
+    if (older.total) {
+      // Show the most recent earlier matches, marked, rather than a bare "none since".
+      return { ...older, results: older.results.map((r) => ({ ...r, before_since: true })), since_filter_empty: true, note: `Nothing matched since ${args.since}; these are the most recent earlier matches.` };
+    }
+  }
+  return out;
+}
+
+async function searchOnce(ctx, { query = "", upc, sources = Object.keys(AGENCIES), since }) {
   const parsed = parseQuery(query);
   const forms = upc ? upcForms(upc) : undefined;
   const words = parsed.terms.filter((t) => t.kind === "word").map((t) => t.raw);

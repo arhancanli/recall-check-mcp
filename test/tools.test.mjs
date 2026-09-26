@@ -90,3 +90,21 @@ test("check_recalls: when nothing matches every term, near matches come back fla
   assert.equal(data.results[0].confidence, "low");
   assert.deepEqual(data.results[0].missing, ["purple"]);
 });
+
+test("check_recalls: a date filter that leaves nothing returns the most recent earlier matches, marked", async () => {
+  const fixtures = {
+    "www.saferproducts.gov/RestWebServices/Recall?format=json&ProductName=heater&RecallDateStart=2026-09-01": { status: 200, body: "[]" },
+    "www.saferproducts.gov/RestWebServices/Recall?format=json&ProductName=heater": { status: 200, body: JSON.stringify([{ RecallNumber: 7, RecallDate: "2026-06-10T00:00:00", Title: "Acme Recalls Heaters", Products: [{ Name: "Acme heater" }], URL: "https://www.cpsc.gov/Recalls/y" }]) },
+  };
+  const impl = async (url) => {
+    const u = new URL(url);
+    const hit = fixtures[`${u.host}${u.pathname}${u.search}`];
+    return hit ? new Response(hit.body, { status: hit.status }) : new Response("{}", { status: 404 });
+  };
+  const client = await connect(impl);
+  const { data } = await call(client, "check_recalls", { query: "acme heater", since: "2026-09-01" });
+  assert.equal(data.since_filter_empty, true);
+  assert.equal(data.results[0].date, "2026-06-10");
+  assert.equal(data.results[0].before_since, true);
+  assert.match(data.note, /Nothing matched since 2026-09-01/);
+});

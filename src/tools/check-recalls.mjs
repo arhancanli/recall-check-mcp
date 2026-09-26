@@ -20,7 +20,7 @@ export const checkRecalls = defineTool({
   handler: async ({ query, upc, sources, since }, ctx) => {
     if (!query && !upc) throw new ToolError("missing_query", "Give a product name, brand or model number, or a UPC.");
     const out = await searchAgencies(ctx, { query, upc, sources, since });
-    const note = out.total === 0 ? "No recall matched in the agencies searched. That is not proof the product is safe: check the brand's own notices, and use vehicle_recalls for vehicles." : undefined;
+    const note = out.note ?? (out.total === 0 ? "No recall matched in the agencies searched. That is not proof the product is safe: check the brand's own notices, and use vehicle_recalls for vehicles." : undefined);
     return { searched: out.searched, total: out.total, results: out.results, ...compact({ ...out, searched: undefined, total: undefined, results: undefined, note }) };
   },
 });
