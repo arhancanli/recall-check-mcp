@@ -1,0 +1,68 @@
+{
+  "name": "recall-check-mcp",
+  "version": "0.1.0",
+  "description": "Checks US product recalls across agencies in one call: CPSC consumer products and FDA food, drugs and devices matched by name, brand, model number or UPC, and NHTSA vehicle recalls by VIN or make, model and year.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "bin": {
+    "recall-check-mcp": "src/server.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "npm-shrinkwrap.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.1",
+    "zod": "4.6.5"
+  },
+  "mcpName": "io.github.arhancanli/recall-check-mcp",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "consumer-safety",
+    "recalls",
+    "cpsc",
+    "fda",
+    "nhtsa",
+    "vin",
+    "upc",
+    "product-safety"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhancanli/recall-check-mcp.git"
+  },
+  "homepage": "https://github.com/arhancanli/recall-check-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/arhancanli/recall-check-mcp/issues"
+  },
+  "factory": {
+    "displayName": "Recall Check",
+    "category": "consumer-safety",
+    "allowHosts": [
+      "www.saferproducts.gov",
+      "api.fda.gov",
+      "api.nhtsa.gov",
+      "vpic.nhtsa.dot.gov"
+    ],
+    "toolListBudget": 4000,
+    "linkHosts": [
+      "www.accessdata.fda.gov",
+      "www.nhtsa.gov"
+    ]
+  }
+}

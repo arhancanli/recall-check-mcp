@@ -1,0 +1,19 @@
+{
+  "competitor": {
+    "label": "@cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server",
+    "command": "npx",
+    "args": ["-y", "@cyanheads/cpsc-recalls-mcp-server"]
+  },
+  "tasks": [
+    { "id": "sleeper", "prompt": "Has the Fisher-Price Rock 'n Play Sleeper been recalled? Answer yes or no.", "expect": { "regex": "^yes\\b" } },
+    { "id": "sleeper-units", "prompt": "About how many Fisher-Price Rock 'n Play Sleepers were covered by the 2023 reannounced recall? Give the number in millions only.", "expect": { "number": 4.7, "tol": 0.05 } },
+    { "id": "insulin-pump", "prompt": "Name one insulin pump model that has an FDA device recall reported in 2026. Give the product name only.", "expect": { "any": ["minimed", "omnipod", "t:slim", "tandem"] } },
+    { "id": "device-class", "prompt": "What class was the FDA recall of the MiniMed 780G insulin pump reported on 2026-08-26? Answer Class I, II or III.", "expect": { "regex": "class\\s+ii\\b" } },
+    { "id": "accord-count", "prompt": "How many NHTSA recall campaigns does the 2018 Honda Accord have? Give the number only.", "expect": { "number": 6 } },
+    { "id": "vin-check", "prompt": "Is 1HGCV1F34JA000001 a VIN with a valid check digit? Answer yes or no.", "expect": { "regex": "^no\\b" } },
+    { "id": "vin-model", "prompt": "What vehicle (make, model and model year) does VIN 1HGCV1F34JA000001 decode to? Give make model year only.", "expect": { "contains": ["honda", "accord", "2018"] } },
+    { "id": "peanut", "prompt": "Name the firm behind the most recent FDA food recall involving peanut butter. Give the firm name only.", "expect": { "any": ["albertsons"] } },
+    { "id": "helmet", "prompt": "Which CPSC recall announced on 2026-09-24 involved children's bicycle helmets? Give the brand only.", "expect": { "contains": ["5color"] } },
+    { "id": "agencies", "prompt": "Search for recalls of 'baby formula'. Which US agency's records cover infant formula recalls? Answer CPSC, FDA or NHTSA.", "expect": { "contains": ["fda"] } }
+  ]
+}

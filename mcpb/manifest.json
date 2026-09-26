@@ -1,0 +1,66 @@
+{
+  "manifest_version": "0.3",
+  "name": "recall-check-mcp",
+  "display_name": "Recall Check",
+  "version": "0.1.0",
+  "description": "Checks US product recalls across agencies in one call: CPSC consumer products and FDA food, drugs and devices matched by name, brand, model number or UPC, and NHTSA vehicle recalls by VIN or make, model and year.",
+  "author": {
+    "name": "Arhan Canli",
+    "url": "https://github.com/arhancanli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arhancanli/recall-check-mcp"
+  },
+  "homepage": "https://github.com/arhancanli/recall-check-mcp#readme",
+  "documentation": "https://github.com/arhancanli/recall-check-mcp#readme",
+  "support": "https://github.com/arhancanli/recall-check-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "consumer-safety",
+    "recalls",
+    "cpsc",
+    "fda",
+    "nhtsa",
+    "vin",
+    "upc",
+    "product-safety"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/server.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "check_recalls",
+      "description": "Check a product for recalls"
+    },
+    {
+      "name": "recent_recalls",
+      "description": "Recent recalls"
+    },
+    {
+      "name": "vehicle_recalls",
+      "description": "Vehicle recalls"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

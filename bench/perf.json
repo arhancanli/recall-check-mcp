@@ -1,0 +1,59 @@
+{
+  "measured_on": "2026-09-26",
+  "where": "Dubai, home connection",
+  "node": "v24.19.0",
+  "runs": 3,
+  "tool_definition_chars": 1765,
+  "tools_list_chars": 3274,
+  "competitor": {
+    "label": "@cyanheads/cpsc-recalls-mcp-server, the most downloaded recall server",
+    "tool_definition_chars": 10121,
+    "tools_list_chars": 28479
+  },
+  "scenarios": [
+    {
+      "call": "check_recalls: Fisher-Price Rock n Play sleeper",
+      "first_call_ms": 2704,
+      "repeat_ms": 2.1,
+      "result_chars": 4254
+    },
+    {
+      "call": "check_recalls: insulin pump (FDA devices)",
+      "first_call_ms": 3084,
+      "repeat_ms": 3.9,
+      "result_chars": 7563
+    },
+    {
+      "call": "check_recalls: peanut butter, FDA food only",
+      "first_call_ms": 2416,
+      "repeat_ms": 4.2,
+      "result_chars": 5713
+    },
+    {
+      "call": "vehicle_recalls: 2018 Honda Accord",
+      "first_call_ms": 300,
+      "repeat_ms": 0.4,
+      "result_chars": 6617
+    },
+    {
+      "call": "vehicle_recalls: a VIN with a wrong check digit",
+      "first_call_ms": 805,
+      "repeat_ms": 0.3,
+      "result_chars": 6764
+    },
+    {
+      "call": "recent_recalls: last 7 days",
+      "first_call_ms": 2796,
+      "repeat_ms": 0.7,
+      "result_chars": 12776
+    }
+  ],
+  "example": {
+    "call": "check_recalls: Fisher-Price Rock n Play sleeper",
+    "tool": "check_recalls",
+    "arguments": {
+      "query": "Fisher-Price Rock n Play sleeper"
+    },
+    "result": "{\"searched\":[\"CPSC (consumer products)\",\"FDA (food)\",\"FDA (drugs)\",\"FDA (medical devices)\"],\"total\":3,\"results\":[{\"agency\":\"CPSC (consumer products)\",\"id\":\"23088\",\"date\":\"2023-01-09\",\"title\":\"Fisher-Price Reannounces Recall of 4.7 Million Rock 'n Play Sleepers; At Least Eight Deaths Occurred After Recall\",\"product\":\"All models of Rock 'n Play Sleepers\",\"firm\":\"Fisher-Price, of East Aurora, New York\",\"hazard\":\"Infant fatalities have occurred in the Rock 'n Play Sleepers, after the infants rolled from their back to their stomach or side while unrestrained, or under other circumstances.\",\"remedy\":\"Consumers should stop using the Rock 'n Play immediately and contact Fisher-Price for a refund or voucher. It is illegal to sell or distribute the recalled sleepers.\",\"units\":\"About 4.7 million (The original recall was announced on April 12, 2019)\",\"injuries\":\"On April 12, 2019, at the time the original recall was announced, over 30 fatalities were reported to have occurred in the Rock 'n Play Sleepers after the infants rolled from their back to their stomach or side while unrestrained, or under other circ [clipped: 446 more characters]\",\"sold_at\":\"Major stores nationwide including Walmart, Target, and online at Amazon from September 2009 through April 2019 for between $40 and $149.\",\"url\":\"https://www.cpsc.gov/Recalls/2023/Fisher-Price-Reannounces-Recall-of-4-7-Million-Rock-n-Play-Sleepers-At-Least-Eight-Deaths-Occurred-After-Recall\",\"confidence\":\"high\",\"matched\":[\"fisher\",\"price\",\"rock\",\"play\",\"sleeper\"]},{\"agency\":\"CPSC (consumer products)\",\"id\":\"19105\",\"date\":\"2019-04-12\",\"title\":\"Fisher-Price Recalls Rock 'n Play Sleepers Due to Reports of Deaths\",\"product\":\"All Models of Rock 'n Play Sleeper\",\"firm\":\"Fisher-Price, of East Aurora, N.Y.\",\"hazard\":\"Infant fatalities have occurred in Rock 'n Play Sleepers, after the infants rolled from their back to their stomach or side while unrestrained, or under other circumstances.\",\"remedy\":\"Consumers should immediately stop using the product and contact Fisher-Price for a refund or voucher.\",\"units\":\"About 4.7 million products\",\"injuries\":\"Since the 2009 product introduction, over 30 infant fatalities have occurred in Rock 'n Play Sleepers, after the infants rolled over while unrestrained, or under other circumstances.\",\"sold_at\":\"Major retailers for approximately $40 to $149.\",\"url\":\"https://www.cpsc.gov/Recalls/2019/Fisher-Price-Recalls-Rock-n-Play-Sleepers-Due-to-Reports-of-Deaths\",\"confidence\":\"high\",\"matched\":[\"fisher\",\"price\",\"rock\",\"play\",\"sleeper\"]},{\"agency\":\"CPSC (consumer products)\",\"id\":\"13087\",\"date\":\"2013-01-08\",\"title\":\"Fisher-Price Recalls to Inspect Rock 'N Play Infant Sleepers Due to Risk of Exposure to Mold\",\"product\":\"Newborn Rock 'n Play Sleeper™\",\"firm\":\"Fisher-Price Inc., of East Aurora, N.Y.\",\"hazard\":\"Mold can develop between the removable seat cushion and the hard plastic frame of the sleeper when it remains wet/moist or is infrequently cleaned, posing a risk of exposure to mold to infants sleeping in the product. The CPSC advises that mold has been associated with respiratory illnesses and other infections. Although mold is not present at the time of purchase, mold growth can occur after use [clipped: 15 more characters]\",\"remedy\":\"Consumers should immediately check for mold under the removable seat cushion. Dark brown, gray or black spots can indicate the presence of mold. If mold is found, consumers should immediately stop using the product. Consumers can contact Fisher-Price for cleaning instructions or further assistance. [clipped: 101 more characters]\",\"units\":\"About 800,000 units\",\"injuries\":\"Fisher-Price has received 600 reports of mold on the product. Sixteen consumers have reported that their infants have been treated for respiratory issues, coughs and hives after sleeping in the product.\",\"sold_at\":\"Mass merchandise stores nationwide and online since September 2009 for between $50 and $85. Units currently in retail stores are not affected by this [clipped: 114 more characters]\",\"url\":\"https://www.cpsc.gov/Recalls/2013/Fisher-Price-Recalls-to-Inspect-Rock-N-Play-Infant-Sleepers-Due-to-Risk-of-Exposure-to-Mold\",\"confidence\":\"high\",\"matched\":[\"fisher\",\"price\",\"rock\",\"play\",\"sleeper\"]}],\"candidates_checked\":19}"
+  }
+}
