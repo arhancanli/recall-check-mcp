@@ -22,7 +22,7 @@ export const MAX_TERMS = 6;
 export function fold(text) {
   return decodeEntities(String(text ?? ""))
     .normalize("NFKD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
 
